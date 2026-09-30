@@ -8,7 +8,7 @@ import ie.atu.client.dto.ProductResponse;
 
 @FeignClient(
         name = "catalog-service",
-        url = "http://localhost:8081"
+        url = "${catalog.service.url}"
 )
 public interface CatalogClient {
 
