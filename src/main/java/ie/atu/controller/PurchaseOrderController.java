@@ -25,6 +25,10 @@ public class PurchaseOrderController {
     public ProductResponse testCatalogConnection(@PathVariable Long productId) {
         return service.testCatalogConnection(productId);
     }
+    @GetMapping("/{id}/product")
+    public ProductResponse getProductForOrder(@PathVariable Long id) {
+        return service.getProductForOrder(id);
+    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

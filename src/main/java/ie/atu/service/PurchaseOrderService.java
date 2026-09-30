@@ -6,6 +6,8 @@ import ie.atu.repository.PurchaseOrderRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import ie.atu.client.dto.ProductResponse;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class PurchaseOrderService {
@@ -28,5 +30,11 @@ public class PurchaseOrderService {
 
     public ProductResponse testCatalogConnection(Long productId) {
         return catalogClient.getProductById(productId);
+    }
+    public ProductResponse getProductForOrder(Long orderId) {
+        PurchaseOrder order = repository.findById(orderId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Order not found"));
+
+        return catalogClient.getProductById(order.getProductId());
     }
 }
