@@ -5,6 +5,7 @@ import ie.atu.model.PurchaseOrder;
 import ie.atu.repository.PurchaseOrderRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import ie.atu.client.dto.ProductResponse;
 
 @Service
 public class PurchaseOrderService {
@@ -25,7 +26,7 @@ public class PurchaseOrderService {
         return repository.save(order);
     }
 
-    public String testCatalogConnection(Long productId) {
+    public ProductResponse testCatalogConnection(Long productId) {
         return catalogClient.getProductById(productId);
     }
 }

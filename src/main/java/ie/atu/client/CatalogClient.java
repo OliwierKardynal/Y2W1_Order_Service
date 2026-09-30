@@ -4,6 +4,7 @@ package ie.atu.client;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import ie.atu.client.dto.ProductResponse;
 
 @FeignClient(
         name = "catalog-service",
@@ -12,5 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface CatalogClient {
 
     @GetMapping("/products/{id}")
-    String getProductById(@PathVariable("id") Long id);
+    ProductResponse getProductById(@PathVariable("id") Long id);
+
+
 }

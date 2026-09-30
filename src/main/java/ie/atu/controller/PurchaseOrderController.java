@@ -5,6 +5,7 @@ import ie.atu.service.PurchaseOrderService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import ie.atu.client.dto.ProductResponse;
 
 @RestController
 @RequestMapping("/orders")
@@ -21,7 +22,7 @@ public class PurchaseOrderController {
     }
 
     @GetMapping("/test-catalog/{productId}")
-    public String testCatalogConnection(@PathVariable Long productId) {
+    public ProductResponse testCatalogConnection(@PathVariable Long productId) {
         return service.testCatalogConnection(productId);
     }
 
