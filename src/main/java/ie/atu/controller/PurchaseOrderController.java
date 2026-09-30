@@ -20,6 +20,11 @@ public class PurchaseOrderController {
         return service.getAll();
     }
 
+    @GetMapping("/test-catalog/{productId}")
+    public String testCatalogConnection(@PathVariable Long productId) {
+        return service.testCatalogConnection(productId);
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public PurchaseOrder create(@RequestBody PurchaseOrder order) {
